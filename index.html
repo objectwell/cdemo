@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<html xmlns="http://www.w3.org/1999/xhtml">  
+  <head>  
+    <style type="text/css">  
+        .wraper {  
+            position: relative;  
+            border: 1px solid orange;  
+        }  
+    </style>  
+    <script type="text/javascript">  
+        function draw(){  
+            var can = document.getElementById('test');  
+            if(can.getContext){  
+                var cxt = can.getContext('2d');  
+  
+                //绘制左侧黑色区域  
+                cxt.beginPath();  
+                cxt.arc(100,100,80,Math.PI*0.5,Math.PI*1.5,false);  
+                cxt.bezierCurveTo(20,100,180,100,100,180);  
+                cxt.fill();  
+  
+                //绘制右侧白色区域  
+                cxt.beginPath();  
+                cxt.arc(100,100,80,Math.PI*0.5,Math.PI*1.5,true);  
+                cxt.stroke();  
+  
+                //绘制右侧黑色圆圈  
+                cxt.beginPath();  
+                cxt.moveTo(120,60);  
+                cxt.arc(120,60,15,0,Math.PI*2,true);  
+                cxt.fill();  
+  
+                //绘制左侧白色圆圈  
+                cxt.fillStyle = "rgba(255,255,255,1)";  
+                cxt.beginPath();  
+                cxt.moveTo(80,140);  
+                cxt.arc(80,140,15,0,Math.PI*2,true);  
+                cxt.fill();  
+            }  
+        }  
+    </script>  
+  </head>   
+    
+  <body onload="draw();">  
+      
+    <canvas id="test" width="200px" height="200px" class="wraper"></canvas>  
+  
+  </body>  
+</html>  
